@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Open Technologies, Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Microsoft.Data.Entity.Migrations.Infrastructure;
 using Microsoft.Data.Entity.Migrations.Model;
 using Microsoft.Data.Entity.Relational.Model;
 using Microsoft.Data.Entity.Utilities;
@@ -298,28 +299,34 @@ namespace Microsoft.Data.Entity.Migrations.Tests
                         new DropColumnOperation("dbo.MyTable", "Bar")
                     };
 
+            var migration
+                = new MigrationMetadata("Name", "Timestamp")
+                      {
+                          UpgradeOperations = upgradeOperations,
+                          DowngradeOperations = downgradeOperations
+                      };
+
             var codeGenerator = new CSharpMigrationCodeGenerator();
             var stringBuilder = new IndentedStringBuilder();
 
-            codeGenerator.GenerateClass("MyNamespace", "MyClass", upgradeOperations, downgradeOperations, stringBuilder);
+            codeGenerator.GenerateMigrationClass("MyNamespace", "MyClass", migration, stringBuilder);
 
             Assert.Equal(
-                @"using System;
-using Microsoft.Data.Migrations;
-using Microsoft.Data.Migrations.Builders;
-using Microsoft.Data.Migrations.Model;
-using Microsoft.Data.Relational;
+                @"using Microsoft.Data.Entity.Migrations;
+using Microsoft.Data.Entity.Migrations.Builders;
+using System;
 
 namespace MyNamespace
 {
-    public class MyClass : Migration
+    public partial class MyClass : Migration
     {
-        public override Up(MigrationBuilder migrationBuilder)
+        public override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn(""dbo.MyTable"", ""Foo"", c => c.Int());
             migrationBuilder.AddColumn(""dbo.MyTable"", ""Bar"", c => c.Int());
         }
-        public override Down(MigrationBuilder migrationBuilder)
+        
+        public override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(""dbo.MyTable"", ""Foo"");
             migrationBuilder.DropColumn(""dbo.MyTable"", ""Bar"");

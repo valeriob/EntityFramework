@@ -58,6 +58,54 @@ namespace Microsoft.Data.Entity.Migrations
             return string.Format(CultureInfo.CurrentCulture, GetString("UnknownOperation", "sqlGeneratorType", "operationType"), sqlGeneratorType, operationType);
         }
 
+        /// <summary>
+        /// The target migration '{targetMigrationName}' was not found.
+        /// </summary>
+        internal static string TargetMigrationNotFound
+        {
+            get { return GetString("TargetMigrationNotFound"); }
+        }
+
+        /// <summary>
+        /// The target migration '{targetMigrationName}' was not found.
+        /// </summary>
+        internal static string FormatTargetMigrationNotFound(object targetMigrationName)
+        {
+            return string.Format(CultureInfo.CurrentCulture, GetString("TargetMigrationNotFound", "targetMigrationName"), targetMigrationName);
+        }
+
+        /// <summary>
+        /// The name '{migrationName}' is used by an existing migration.
+        /// </summary>
+        internal static string DuplicateMigrationName
+        {
+            get { return GetString("DuplicateMigrationName"); }
+        }
+
+        /// <summary>
+        /// The name '{migrationName}' is used by an existing migration.
+        /// </summary>
+        internal static string FormatDuplicateMigrationName(object migrationName)
+        {
+            return string.Format(CultureInfo.CurrentCulture, GetString("DuplicateMigrationName", "migrationName"), migrationName);
+        }
+
+        /// <summary>
+        /// The local and the database migrations are not consistent.
+        /// </summary>
+        internal static string InconsistentMigrations
+        {
+            get { return GetString("InconsistentMigrations"); }
+        }
+
+        /// <summary>
+        /// The local and the database migrations are not consistent.
+        /// </summary>
+        internal static string FormatInconsistentMigrations()
+        {
+            return GetString("InconsistentMigrations");
+        }
+
         private static string GetString(string name, params string[] formatterNames)
         {
             var value = _resourceManager.GetString(name);
