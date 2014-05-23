@@ -405,7 +405,7 @@ ORDER BY CustomerID",
         private readonly SqlLoggerFactory _loggingFactory = new SqlLoggerFactory();
 
         private readonly IServiceProvider _serviceProvider;
-        private readonly ImmutableDbContextOptions _configuration;
+        private readonly DbContextOptions _options;
         private readonly TestDatabase _testDatabase;
 
         public NorthwindQueryFixture()
@@ -420,11 +420,10 @@ ORDER BY CustomerID",
 
             _testDatabase = TestDatabase.Northwind().Result;
 
-            _configuration
+            _options
                 = new DbContextOptions()
                     .UseModel(CreateModel())
-                    .UseSqlServer(_testDatabase.Connection.ConnectionString)
-                    .BuildConfiguration();
+                    .UseSqlServer(_testDatabase.Connection.ConnectionString);
         }
 
         public string Sql
@@ -439,7 +438,7 @@ ORDER BY CustomerID",
 
         public DbContext CreateContext()
         {
-            return new DbContext(_serviceProvider, _configuration);
+            return new DbContext(_serviceProvider, _options);
         }
 
         public void InitLogger()
