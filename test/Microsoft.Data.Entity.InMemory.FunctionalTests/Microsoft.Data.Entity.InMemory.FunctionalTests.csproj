@@ -55,6 +55,7 @@
     <PackageReference Include="xunit.execution" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositeKeyEndToEndTest.cs" />
     <Compile Include="GuidValueGeneratorEndToEndTest.cs" />
     <Compile Include="InMemoryConfigPatternsTest.cs" />
     <Compile Include="InMemoryDataStoreTest.cs" />

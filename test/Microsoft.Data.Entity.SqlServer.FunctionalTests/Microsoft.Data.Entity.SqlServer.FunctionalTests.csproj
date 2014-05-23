@@ -65,6 +65,7 @@
     <PackageReference Include="xunit.execution" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositeKeyEndToEndTest.cs" />
     <Compile Include="ExistingConnectionTest.cs" />
     <Compile Include="NorthwindQueryTest.cs" />
     <Compile Include="SequenceEndToEndTest.cs" />

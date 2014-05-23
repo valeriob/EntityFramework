@@ -40,7 +40,7 @@ namespace Microsoft.Data.Entity.InMemory.FunctionalTests
                 context.Set<Employee>().AddRange(NorthwindData.Employees);
                 context.Set<Order>().AddRange(NorthwindData.Orders);
                 context.Set<Product>().AddRange(NorthwindData.Products);
-                //context.Set<OrderDetail>().AddRange(NorthwindData.OrderDetails); // composite keys
+                context.Set<OrderDetail>().AddRange(NorthwindData.OrderDetails);
                 context.SaveChanges();
             }
         }
