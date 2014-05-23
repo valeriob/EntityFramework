@@ -106,7 +106,7 @@ namespace Microsoft.Data.Entity.Migrations.Infrastructure
 
         protected virtual void UpdateDatabase(IReadOnlyList<SqlStatement> sqlStatements)
         {
-            var dbConnection = ((RelationalConnection)_contextConfiguration.Connection).DbConnection;
+            var dbConnection = ((RelationalConnection)ContextConfiguration.Connection).DbConnection;
 
             SqlExecutor.ExecuteNonQuery(dbConnection, sqlStatements);
         }
@@ -144,7 +144,7 @@ namespace Microsoft.Data.Entity.Migrations.Infrastructure
             var index = localMigrations.IndexOf(m => m.Name == targetMigrationName);
             if (index < 0)
             {
-                throw new ArgumentException(Strings.FormatTargetMigrationNotFound(targetMigrationName));
+                throw new InvalidOperationException(Strings.FormatTargetMigrationNotFound(targetMigrationName));
             }
 
             if (index < databaseMigrations.Count)
@@ -153,7 +153,7 @@ namespace Microsoft.Data.Entity.Migrations.Infrastructure
                     GenerateUpdateDatabaseSql(
                         localMigrations
                             .Skip(index + 1)
-                            .Take(databaseMigrations.Count - index)
+                            .Take(databaseMigrations.Count - index - 1)
                             .Reverse()
                             .ToArray(),
                         downgrade: true);

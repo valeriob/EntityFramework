@@ -17,11 +17,6 @@ namespace Microsoft.Data.Entity.Migrations
 {
     public class CSharpMigrationCodeGenerator : MigrationCodeGenerator
     {
-        public CSharpMigrationCodeGenerator()
-            : this(new CSharpModelCodeGenerator())
-        {
-        }
-
         public CSharpMigrationCodeGenerator([NotNull] CSharpModelCodeGenerator modelCodeGenerator)
             : base(Check.NotNull(modelCodeGenerator, "modelCodeGenerator"))
         {
@@ -30,7 +25,7 @@ namespace Microsoft.Data.Entity.Migrations
         public static string Generate<T>([NotNull] T migrationOperation)
             where T : MigrationOperation
         {
-            var generator = new CSharpMigrationCodeGenerator();
+            var generator = new CSharpMigrationCodeGenerator(new CSharpModelCodeGenerator());
             var stringBuilder = new IndentedStringBuilder();
 
             migrationOperation.GenerateCode(generator, stringBuilder);

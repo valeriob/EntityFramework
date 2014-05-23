@@ -120,24 +120,6 @@ namespace Microsoft.Data.Entity.Migrations.Tests.Infrastructure
 
     namespace Migrations
     {
-        public class Migration1 : Migration, IMigrationMetadata
-        {
-            public override void Up(MigrationBuilder migrationBuilder)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override void Down(MigrationBuilder migrationBuilder)
-            {
-                throw new NotImplementedException();
-            }
-
-            string IMigrationMetadata.Timestamp
-            {
-                get { return "1"; }
-            }
-        }
-
         public class Migration2 : Migration, IMigrationMetadata
         {
             public override void Up(MigrationBuilder migrationBuilder)
@@ -153,6 +135,24 @@ namespace Microsoft.Data.Entity.Migrations.Tests.Infrastructure
             string IMigrationMetadata.Timestamp
             {
                 get { return "2"; }
+            }
+        }
+
+        public class Migration1 : Migration, IMigrationMetadata
+        {
+            public override void Up(MigrationBuilder migrationBuilder)
+            {
+                throw new NotImplementedException();
+            }
+
+            public override void Down(MigrationBuilder migrationBuilder)
+            {
+                throw new NotImplementedException();
+            }
+
+            string IMigrationMetadata.Timestamp
+            {
+                get { return "1"; }
             }
         }
 

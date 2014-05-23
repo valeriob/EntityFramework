@@ -74,14 +74,22 @@ namespace Microsoft.Data.Entity.Migrations.Infrastructure
 
             var migration = CreateMigration(migrationName);
 
-            if (!migration.UpgradeOperations.Any()
-                && !migration.DowngradeOperations.Any())
-            {
-                return;
-            }
-
             ScaffoldMigration(migration);
             ScaffoldModel(migration.TargetModel);
+        }
+
+        public virtual void ScaffoldMigration([NotNull] IMigrationMetadata migration)
+        {
+            Check.NotNull(migration, "migration");
+
+            var className = GetClassName(migration);
+            var stringBuilder = new IndentedStringBuilder();
+            var metadataStringBuilder = new IndentedStringBuilder();
+
+            MigrationCodeGenerator.GenerateMigrationClass(Namespace, className, migration, stringBuilder);
+            MigrationCodeGenerator.GenerateMigrationMetadataClass(Namespace, className, migration, metadataStringBuilder);
+
+            OnMigrationScaffolded(className, stringBuilder.ToString(), metadataStringBuilder.ToString());
         }
 
         protected virtual IMigrationMetadata CreateMigration([NotNull] string migrationName)
@@ -115,20 +123,6 @@ namespace Microsoft.Data.Entity.Migrations.Infrastructure
         protected virtual string CreateMigrationTimestamp()
         {
             return DateTime.UtcNow.ToString("yyyyMMddHHmmssf", CultureInfo.InvariantCulture);
-        }
-
-        protected virtual void ScaffoldMigration([NotNull] IMigrationMetadata migration)
-        {
-            Check.NotNull(migration, "migration");
-
-            var className = GetClassName(migration);
-            var stringBuilder = new IndentedStringBuilder();
-            var metadataStringBuilder = new IndentedStringBuilder();
-
-            MigrationCodeGenerator.GenerateMigrationClass(Namespace, className, migration, stringBuilder);
-            MigrationCodeGenerator.GenerateMigrationMetadataClass(Namespace, className, migration, metadataStringBuilder);
-
-            OnMigrationScaffolded(className, stringBuilder.ToString(), metadataStringBuilder.ToString());
         }
 
         protected virtual void ScaffoldModel([NotNull] IModel model)
