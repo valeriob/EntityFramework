@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.SQLit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.Oracle", "src\Microsoft.Data.Entity.Oracle\Microsoft.Data.Entity.Oracle.csproj", "{1E0F0949-2814-43D8-BC30-76D42E736149}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.Oracle.Tests", "test\Microsoft.Data.Entity.Oracle.Tests\Microsoft.Data.Entity.Oracle.Tests.csproj", "{1278B376-1A58-4910-A1E3-54D4FAB01004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.Oracle.FunctionalTests", "test\Microsoft.Data.Entity.Oracle.FunctionalTests\Microsoft.Data.Entity.Oracle.FunctionalTests.csproj", "{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,14 @@ Global
 		{1E0F0949-2814-43D8-BC30-76D42E736149}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0F0949-2814-43D8-BC30-76D42E736149}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0F0949-2814-43D8-BC30-76D42E736149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1278B376-1A58-4910-A1E3-54D4FAB01004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1278B376-1A58-4910-A1E3-54D4FAB01004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1278B376-1A58-4910-A1E3-54D4FAB01004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1278B376-1A58-4910-A1E3-54D4FAB01004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,5 +142,7 @@ Global
 		{7E1A1A1B-6D0B-4C66-8026-326EFC0B4625} = {547020C0-976F-4542-81CE-7FD465595614}
 		{1F060759-25F6-47FB-AEBB-3D88195F3DF7} = {547020C0-976F-4542-81CE-7FD465595614}
 		{1E0F0949-2814-43D8-BC30-76D42E736149} = {35BED7DE-CA6F-41EA-91E3-25CA7295C7B9}
+		{1278B376-1A58-4910-A1E3-54D4FAB01004} = {547020C0-976F-4542-81CE-7FD465595614}
+		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB} = {547020C0-976F-4542-81CE-7FD465595614}
 	EndGlobalSection
 EndGlobal

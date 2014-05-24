@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "Microsoft.Data.Entity.InMemory" : "",
+    "Microsoft.Data.Entity.SqlServer": "",
+    "Xunit.KRunner": "0.1-alpha-*"
+  },
+  "code": "**\\*.cs;..\\Shared\\TestFileLogger.cs;..\\Shared\\Northwind.cs;..\\Shared\\NorthwindQueryTestBase.cs;..\\Shared\\NorthwindQueryFixtureBase.cs",
+  "commands": {
+    "test": "Xunit.KRunner"
+  },
+  "configurations": {
+    "net451": {}
+  }
+}
