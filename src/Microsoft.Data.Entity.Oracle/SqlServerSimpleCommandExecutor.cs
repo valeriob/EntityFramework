@@ -6,9 +6,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.Data.Entity.Relational;
-using Microsoft.Data.Entity.SqlServer.Utilities;
+using Microsoft.Data.Entity.Oracle.Utilities;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerSimpleCommandExecutor : IDbCommandExecutor
     {

@@ -5,8 +5,8 @@ using JetBrains.Annotations;
 using Microsoft.Data.Entity.Identity;
 using Microsoft.Data.Entity.Migrations;
 using Microsoft.Data.Entity.Relational;
-using Microsoft.Data.Entity.SqlServer;
-using Microsoft.Data.Entity.SqlServer.Utilities;
+using Microsoft.Data.Entity.Oracle;
+using Microsoft.Data.Entity.Oracle.Utilities;
 using Microsoft.Data.Entity.Storage;
 
 // ReSharper disable once CheckNamespace
@@ -14,7 +14,7 @@ namespace Microsoft.Framework.DependencyInjection
 {
     public static class SqlServerEntityServicesBuilderExtensions
     {
-        public static EntityServicesBuilder AddSqlServer([NotNull] this EntityServicesBuilder builder)
+        public static EntityServicesBuilder AddOracle([NotNull] this EntityServicesBuilder builder)
         {
             Check.NotNull(builder, "builder");
 
@@ -28,7 +28,7 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddSingleton<SqlStatementExecutor>()
                 .AddSingleton<SqlServerTypeMapper>()
                 .AddScoped<SqlServerDataStore>()
-                .AddScoped<SqlServerConnection>()
+                .AddScoped<OracleConnection>()
                 .AddScoped<SqlServerBatchExecutor>()
                 .AddScoped<ModelDiffer, ModelDiffer>()
                 .AddScoped<SqlServerMigrationOperationSqlGenerator>()

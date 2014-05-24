@@ -5,8 +5,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1278B376-1A58-4910-A1E3-54D4FAB01004}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{70817C10-4A0C-4357-9769-B489EF8A3FD1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Data.Entity.Oracle.Tests</RootNamespace>
     <AssemblyName>Microsoft.Data.Entity.Oracle.Tests</AssemblyName>
@@ -32,6 +32,9 @@
     <DefineConstants>TRACE;NET451;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -62,19 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiConsistencyTest.cs" />
-    <Compile Include="SequentialGuidValueGeneratorTest.cs" />
-    <Compile Include="SqlServerConfigurationExtensionTest.cs" />
-    <Compile Include="OracleConnectionTest.cs" />
-    <Compile Include="SqlServerDataStoreSourceTest.cs" />
-    <Compile Include="SqlServerEntityServicesBuilderExtensionsTest.cs" />
-    <Compile Include="SqlServerMigrationOperationSqlGeneratorTest.cs" />
-    <Compile Include="SqlServerSequenceValueGeneratorFactoryTest.cs" />
-    <Compile Include="SqlServerSequenceValueGeneratorTest.cs" />
-    <Compile Include="SqlServerSqlGeneratorTest.cs" />
-    <Compile Include="SqlServerTypeMapperTest.cs" />
-    <Compile Include="..\Shared\ApiConsistencyTestBase.cs" />
-    <Compile Include="SqlServerValueGeneratorSelectorTest.cs" />
+    <Compile Include="Program.cs" />
     <None Include="..\..\packages\KoreBuild\Build\Resources.tt">
       <Link>Properties\Resources.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -43,6 +43,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.Oracl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.Oracle.FunctionalTests", "test\Microsoft.Data.Entity.Oracle.FunctionalTests\Microsoft.Data.Entity.Oracle.FunctionalTests.csproj", "{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "try", "try", "{E8FBA98B-1841-428B-AA77-8633E8AF076A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Data.Entity.Oracle.Try", "test\Microsoft.Data.Entity.Oracle.Try\Microsoft.Data.Entity.Oracle.Try.csproj", "{70817C10-4A0C-4357-9769-B489EF8A3FD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +125,10 @@ Global
 		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70817C10-4A0C-4357-9769-B489EF8A3FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70817C10-4A0C-4357-9769-B489EF8A3FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70817C10-4A0C-4357-9769-B489EF8A3FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70817C10-4A0C-4357-9769-B489EF8A3FD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,5 +152,6 @@ Global
 		{1E0F0949-2814-43D8-BC30-76D42E736149} = {35BED7DE-CA6F-41EA-91E3-25CA7295C7B9}
 		{1278B376-1A58-4910-A1E3-54D4FAB01004} = {547020C0-976F-4542-81CE-7FD465595614}
 		{79AAB7A7-CA17-4C19-BCA5-13EF5955F8DB} = {547020C0-976F-4542-81CE-7FD465595614}
+		{70817C10-4A0C-4357-9769-B489EF8A3FD1} = {E8FBA98B-1841-428B-AA77-8633E8AF076A}
 	EndGlobalSection
 EndGlobal

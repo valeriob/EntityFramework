@@ -9,7 +9,7 @@ using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.DependencyInjection.Fallback;
 using Xunit;
 
-namespace Microsoft.Data.Entity.SqlServer.Tests
+namespace Microsoft.Data.Entity.Oracle.Tests
 {
     public class SqlServerSqlGeneratorTest
     {
@@ -63,7 +63,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
             public DuckDuckGooseContext()
                 : base(new ServiceCollection()
                     .AddEntityFramework()
-                    .AddSqlServer()
+                    .AddOracle()
                     .ServiceCollection
                     .BuildServiceProvider())
             {
@@ -73,7 +73,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
 
             protected internal override void OnConfiguring(DbContextOptions builder)
             {
-                builder.UseSqlServer(new SqlConnection());
+                builder.UseOracle(new SqlConnection());
             }
         }
 

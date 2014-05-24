@@ -4,7 +4,7 @@
 using System.Reflection;
 using Microsoft.Data.Entity.Tests;
 
-namespace Microsoft.Data.Entity.SqlServer.Tests
+namespace Microsoft.Data.Entity.Oracle.Tests
 {
     public class ApiConsistencyTest : ApiConsistencyTestBase
     {

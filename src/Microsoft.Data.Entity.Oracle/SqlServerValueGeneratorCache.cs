@@ -4,7 +4,7 @@
 using JetBrains.Annotations;
 using Microsoft.Data.Entity.Identity;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerValueGeneratorCache : ValueGeneratorCache
     {

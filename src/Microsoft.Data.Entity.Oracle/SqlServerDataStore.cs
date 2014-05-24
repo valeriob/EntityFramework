@@ -6,13 +6,13 @@ using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Relational;
 using Microsoft.Data.Entity.Relational.Update;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerDataStore : RelationalDataStore
     {
         public SqlServerDataStore(
             [NotNull] DbContextConfiguration configuration,
-            [NotNull] SqlServerConnection connection,
+            [NotNull] OracleConnection connection,
             [NotNull] CommandBatchPreparer batchPreparer,
             [NotNull] SqlServerBatchExecutor batchExecutor)
             : base(configuration, connection, batchPreparer, batchExecutor)

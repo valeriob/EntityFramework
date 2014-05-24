@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <Import Project="..\..\tools\EntityFramework.props" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1278B376-1A58-4910-A1E3-54D4FAB01004}</ProjectGuid>
+    <ProjectGuid>{3D9DAEA3-F430-462F-A16E-AE53547A8EEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Data.Entity.Oracle.Tests</RootNamespace>
@@ -62,19 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiConsistencyTest.cs" />
-    <Compile Include="SequentialGuidValueGeneratorTest.cs" />
-    <Compile Include="SqlServerConfigurationExtensionTest.cs" />
-    <Compile Include="OracleConnectionTest.cs" />
-    <Compile Include="SqlServerDataStoreSourceTest.cs" />
-    <Compile Include="SqlServerEntityServicesBuilderExtensionsTest.cs" />
-    <Compile Include="SqlServerMigrationOperationSqlGeneratorTest.cs" />
-    <Compile Include="SqlServerSequenceValueGeneratorFactoryTest.cs" />
-    <Compile Include="SqlServerSequenceValueGeneratorTest.cs" />
-    <Compile Include="SqlServerSqlGeneratorTest.cs" />
-    <Compile Include="SqlServerTypeMapperTest.cs" />
-    <Compile Include="..\Shared\ApiConsistencyTestBase.cs" />
-    <Compile Include="SqlServerValueGeneratorSelectorTest.cs" />
     <None Include="..\..\packages\KoreBuild\Build\Resources.tt">
       <Link>Properties\Resources.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -84,19 +70,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Microsoft.Data.Entity.Oracle\Microsoft.Data.Entity.Oracle.csproj">
+    <ProjectReference Include="..\src\Microsoft.Data.Entity.Oracle\Microsoft.Data.Entity.Oracle.csproj">
       <Project>{1e0f0949-2814-43d8-bc30-76d42e736149}</Project>
       <Name>Microsoft.Data.Entity.Oracle</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Microsoft.Data.Entity\Microsoft.Data.Entity.csproj">
+    <ProjectReference Include="..\src\Microsoft.Data.Entity\Microsoft.Data.Entity.csproj">
       <Project>{71415CEC-8111-4C73-8751-512D22F10602}</Project>
       <Name>Microsoft.Data.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Microsoft.Data.Entity.Migrations\Microsoft.Data.Entity.Migrations.csproj">
+    <ProjectReference Include="..\src\Microsoft.Data.Entity.Migrations\Microsoft.Data.Entity.Migrations.csproj">
       <Project>{6E38B72F-31DA-4AEF-8F34-B8269572EC6B}</Project>
       <Name>Microsoft.Data.Entity.Migrations</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Microsoft.Data.Entity.Relational\Microsoft.Data.Entity.Relational.csproj">
+    <ProjectReference Include="..\src\Microsoft.Data.Entity.Relational\Microsoft.Data.Entity.Relational.csproj">
       <Project>{75C5A774-A3F3-43EB-97D3-DBE0CF2825D8}</Project>
       <Name>Microsoft.Data.Entity.Relational</Name>
     </ProjectReference>

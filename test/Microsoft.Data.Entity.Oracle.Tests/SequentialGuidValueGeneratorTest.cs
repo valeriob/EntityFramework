@@ -9,7 +9,7 @@ using Microsoft.Data.Entity.Metadata;
 using Moq;
 using Xunit;
 
-namespace Microsoft.Data.Entity.SqlServer.Tests
+namespace Microsoft.Data.Entity.Oracle.Tests
 {
     public class SequentialGuidValueGeneratorTest
     {

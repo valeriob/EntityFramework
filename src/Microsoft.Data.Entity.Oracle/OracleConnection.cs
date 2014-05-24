@@ -6,12 +6,13 @@ using System.Data.SqlClient;
 using JetBrains.Annotations;
 using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Relational;
+using OracleManagedConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerConnection : RelationalConnection
+    public class OracleConnection : RelationalConnection
     {
-        public SqlServerConnection([NotNull] DbContextConfiguration configuration)
+        public OracleConnection([NotNull] DbContextConfiguration configuration)
             : base(configuration)
         {
         }
@@ -19,14 +20,14 @@ namespace Microsoft.Data.Entity.SqlServer
         protected override DbConnection CreateDbConnection()
         {
             // TODO: Consider using DbProviderFactory to create connection instance
-            return new SqlConnection(ConnectionString);
+            return new OracleManagedConnection(ConnectionString);
         }
 
-        public virtual SqlConnection CreateMasterConnection()
+        public virtual OracleManagedConnection CreateMasterConnection()
         {
             var builder = new SqlConnectionStringBuilder { ConnectionString = ConnectionString };
             builder.InitialCatalog = "master";
-            return new SqlConnection(builder.ConnectionString);
+            return new OracleManagedConnection(builder.ConnectionString);
         }
     }
 }

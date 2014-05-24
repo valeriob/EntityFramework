@@ -5,7 +5,7 @@ using System;
 using System.Diagnostics;
 using JetBrains.Annotations;
 
-namespace Microsoft.Data.Entity.SqlServer.Utilities
+namespace Microsoft.Data.Entity.Oracle.Utilities
 {
     [DebuggerStepThrough]
     internal static class Check

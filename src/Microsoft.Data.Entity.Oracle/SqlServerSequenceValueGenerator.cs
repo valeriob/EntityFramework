@@ -11,10 +11,10 @@ using Microsoft.Data.Entity.Identity;
 using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Relational;
-using Microsoft.Data.Entity.SqlServer.Utilities;
+using Microsoft.Data.Entity.Oracle.Utilities;
 using Microsoft.Data.Entity.Utilities;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerSequenceValueGenerator : IValueGenerator
     {

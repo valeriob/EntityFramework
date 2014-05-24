@@ -10,7 +10,7 @@ using Microsoft.Data.Entity.Relational;
 using Moq;
 using Xunit;
 
-namespace Microsoft.Data.Entity.SqlServer.Tests
+namespace Microsoft.Data.Entity.Oracle.Tests
 {
     public class SqlServerValueGeneratorSelectorTest
     {

@@ -9,7 +9,7 @@ using Microsoft.Data.Entity.Relational;
 using Microsoft.Data.Entity.Relational.Model;
 using Xunit;
 
-namespace Microsoft.Data.Entity.SqlServer.Tests
+namespace Microsoft.Data.Entity.Oracle.Tests
 {
     public class SqlServerMigrationOperationSqlGeneratorTest
     {

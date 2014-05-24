@@ -11,7 +11,7 @@ using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.DependencyInjection.Fallback;
 using Xunit;
 
-namespace Microsoft.Data.Entity.SqlServer.Tests
+namespace Microsoft.Data.Entity.Oracle.Tests
 {
     public class SqlServerEntityServicesBuilderExtensionsTest
     {
@@ -19,7 +19,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
         public void Can_get_default_services()
         {
             var services = new ServiceCollection();
-            services.AddEntityFramework().AddSqlServer();
+            services.AddEntityFramework().AddOracle();
 
             // Relational
             Assert.True(services.Any(sd => sd.ServiceType == typeof(DatabaseBuilder)));
@@ -34,7 +34,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
 
             // SQL Server scoped
             Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerDataStore)));
-            Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerConnection)));
+            Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleConnection)));
             Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerBatchExecutor)));
             Assert.True(services.Any(sd => sd.ServiceType == typeof(ModelDiffer)));
             Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerMigrationOperationSqlGenerator)));
@@ -45,12 +45,12 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
         public void Services_wire_up_correctly()
         {
             var services = new ServiceCollection();
-            services.AddEntityFramework().AddSqlServer();
+            services.AddEntityFramework().AddOracle();
             var serviceProvider = services.BuildServiceProvider();
 
             var context = new DbContext(
                 serviceProvider,
-                new DbContextOptions().UseSqlServer("goo").BuildConfiguration());
+                new DbContextOptions().UseOracle("goo").BuildConfiguration());
 
             var scopedProvider = context.Configuration.Services.ServiceProvider;
 
@@ -64,7 +64,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
             var sqlStatementExecutor = scopedProvider.GetService<SqlStatementExecutor>();
 
             var sqlServerDataStore = scopedProvider.GetService<SqlServerDataStore>();
-            var sqlServerConnection = scopedProvider.GetService<SqlServerConnection>();
+            var sqlServerConnection = scopedProvider.GetService<OracleConnection>();
             var sqlServerBatchExecutor = scopedProvider.GetService<SqlServerBatchExecutor>();
             var modelDiffer = scopedProvider.GetService<ModelDiffer>();
             var sqlServerMigrationOperationSqlGenerator = scopedProvider.GetService<SqlServerMigrationOperationSqlGenerator>();
@@ -90,7 +90,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
 
             context = new DbContext(
                 serviceProvider,
-                new DbContextOptions().UseSqlServer("goo").BuildConfiguration());
+                new DbContextOptions().UseOracle("goo").BuildConfiguration());
 
             scopedProvider = context.Configuration.Services.ServiceProvider;
 
@@ -106,7 +106,7 @@ namespace Microsoft.Data.Entity.SqlServer.Tests
 
             // Scoped
             Assert.NotSame(sqlServerDataStore, scopedProvider.GetService<SqlServerDataStore>());
-            Assert.NotSame(sqlServerConnection, scopedProvider.GetService<SqlServerConnection>());
+            Assert.NotSame(sqlServerConnection, scopedProvider.GetService<OracleConnection>());
             Assert.NotSame(sqlServerBatchExecutor, scopedProvider.GetService<SqlServerBatchExecutor>());
             Assert.NotSame(modelDiffer, scopedProvider.GetService<ModelDiffer>());
             Assert.NotSame(sqlServerMigrationOperationSqlGenerator, scopedProvider.GetService<SqlServerMigrationOperationSqlGenerator>());

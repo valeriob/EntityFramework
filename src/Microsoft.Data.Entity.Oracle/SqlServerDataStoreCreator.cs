@@ -10,20 +10,20 @@ using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Migrations;
 using Microsoft.Data.Entity.Migrations.Model;
 using Microsoft.Data.Entity.Relational;
-using Microsoft.Data.Entity.SqlServer.Utilities;
+using Microsoft.Data.Entity.Oracle.Utilities;
 using Microsoft.Data.Entity.Storage;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerDataStoreCreator : DataStoreCreator
     {
-        private readonly SqlServerConnection _connection;
+        private readonly OracleConnection _connection;
         private readonly ModelDiffer _modelDiffer;
         private readonly SqlServerMigrationOperationSqlGenerator _sqlGenerator;
         private readonly SqlStatementExecutor _statementExecutor;
 
         public SqlServerDataStoreCreator(
-            [NotNull] SqlServerConnection connection,
+            [NotNull] OracleConnection connection,
             [NotNull] ModelDiffer modelDiffer,
             [NotNull] SqlServerMigrationOperationSqlGenerator sqlGenerator,
             [NotNull] SqlStatementExecutor statementExecutor)

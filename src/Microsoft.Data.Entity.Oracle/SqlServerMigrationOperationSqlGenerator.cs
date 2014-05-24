@@ -5,10 +5,10 @@ using JetBrains.Annotations;
 using Microsoft.Data.Entity.Migrations;
 using Microsoft.Data.Entity.Migrations.Model;
 using Microsoft.Data.Entity.Relational;
-using Microsoft.Data.Entity.SqlServer.Utilities;
+using Microsoft.Data.Entity.Oracle.Utilities;
 using Microsoft.Data.Entity.Utilities;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerMigrationOperationSqlGenerator : MigrationOperationSqlGenerator
     {

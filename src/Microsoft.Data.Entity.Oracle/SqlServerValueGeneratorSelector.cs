@@ -5,9 +5,9 @@ using System;
 using JetBrains.Annotations;
 using Microsoft.Data.Entity.Identity;
 using Microsoft.Data.Entity.Metadata;
-using Microsoft.Data.Entity.SqlServer.Utilities;
+using Microsoft.Data.Entity.Oracle.Utilities;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerValueGeneratorSelector : ValueGeneratorSelector
     {

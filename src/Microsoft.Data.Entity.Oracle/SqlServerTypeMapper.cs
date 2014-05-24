@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using Microsoft.Data.Entity.Relational.Model;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerTypeMapper : RelationalTypeMapper
     {

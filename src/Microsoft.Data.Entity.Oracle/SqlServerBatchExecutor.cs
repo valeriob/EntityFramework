@@ -4,13 +4,13 @@
 using JetBrains.Annotations;
 using Microsoft.Data.Entity.Relational.Update;
 
-namespace Microsoft.Data.Entity.SqlServer
+namespace Microsoft.Data.Entity.Oracle
 {
     public class SqlServerBatchExecutor : BatchExecutor
     {
         public SqlServerBatchExecutor(
             [NotNull] SqlServerSqlGenerator sqlGenerator,
-            [NotNull] SqlServerConnection connection,
+            [NotNull] OracleConnection connection,
             [NotNull] SqlServerTypeMapper parameterFactory)
             : base(sqlGenerator, connection, parameterFactory)
         {
