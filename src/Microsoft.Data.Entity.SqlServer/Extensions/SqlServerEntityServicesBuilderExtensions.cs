@@ -27,6 +27,7 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddSingleton<SqlServerSqlGenerator>()
                 .AddSingleton<SqlStatementExecutor>()
                 .AddSingleton<SqlServerTypeMapper>()
+                .AddSingleton<Microsoft.Data.Entity.Relational.Update.ParameterNameGeneratorFactory>()
                 .AddScoped<SqlServerDataStore>()
                 .AddScoped<SqlServerConnection>()
                 .AddScoped<SqlServerBatchExecutor>()

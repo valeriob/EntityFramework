@@ -139,7 +139,7 @@ namespace Microsoft.Data.Entity.Oracle
             // TODO: Parameterize query and/or delimit identifier without using SqlServerMigrationOperationSqlGenerator
             var sql = new SqlStatement(string.Format(
                 CultureInfo.InvariantCulture,
-                "SELECT NEXT VALUE FOR {0}", _sequenceName));
+                "SELECT {0}.nextval from dual", _sequenceName));
 
             // TODO: Should be able to get relational connection without cast
             var connection = ((RelationalConnection)contextConfiguration.Connection).DbConnection;

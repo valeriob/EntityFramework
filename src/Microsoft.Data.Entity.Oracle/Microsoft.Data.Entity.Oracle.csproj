@@ -51,6 +51,7 @@
     <PackageReference Include="Microsoft.Framework.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OracleCommandBatchPreparer.cs" />
     <Compile Include="SequentialGuidValueGenerator.cs" />
     <Compile Include="SqlServerBatchExecutor.cs" />
     <Compile Include="SqlServerConfigurationExtension.cs" />

@@ -24,19 +24,7 @@ namespace Microsoft.Data.Entity.Oracle
             Check.NotNull(createDatabaseOperation, "createDatabaseOperation");
             Check.NotNull(stringBuilder, "stringBuilder");
 
-            if (generateIdempotentSql)
-            {
-                GenerateDatabasePresenceCheck(createDatabaseOperation.DatabaseName, negative: true, builder: stringBuilder);
-
-                using (stringBuilder.AppendLine().Indent())
-                {
-                    base.Generate(createDatabaseOperation, stringBuilder, generateIdempotentSql: false);
-                }
-            }
-            else
-            {
-                base.Generate(createDatabaseOperation, stringBuilder, generateIdempotentSql);
-            }
+            throw new System.NotSupportedException();
         }
 
         public override void Generate(DropDatabaseOperation dropDatabaseOperation, IndentedStringBuilder stringBuilder, bool generateIdempotentSql)
@@ -44,19 +32,29 @@ namespace Microsoft.Data.Entity.Oracle
             Check.NotNull(dropDatabaseOperation, "dropDatabaseOperation");
             Check.NotNull(stringBuilder, "stringBuilder");
 
-            if (generateIdempotentSql)
-            {
-                GenerateDatabasePresenceCheck(dropDatabaseOperation.DatabaseName, negative: false, builder: stringBuilder);
 
-                using (stringBuilder.AppendLine().Indent())
-                {
-                    base.Generate(dropDatabaseOperation, stringBuilder, generateIdempotentSql: false);
-                }
-            }
-            else
-            {
-                base.Generate(dropDatabaseOperation, stringBuilder, generateIdempotentSql);
-            }
+            var plsql = @"--SET SERVEROUTPUT ON SIZE 1000000
+                            BEGIN
+                              FOR cur_rec IN (SELECT object_name, object_type 
+                                              FROM   user_objects
+                                              WHERE  object_type IN ('TABLE', 'INDEX', 'VIEW', 'PACKAGE', 'PROCEDURE', 'FUNCTION', 'SEQUENCE', 'TRIGGER', 'MATERIALIZED VIEW', 'LOB', 'TYPE' )
+                                            ) LOOP
+                                BEGIN
+                                  IF cur_rec.object_type = 'TABLE' THEN
+                                    EXECUTE IMMEDIATE 'DROP ' || cur_rec.object_type || ' \""' || cur_rec.object_name || '"" CASCADE CONSTRAINTS';
+                                  ELSE
+                                    EXECUTE IMMEDIATE 'DROP ' || cur_rec.object_type || ' ""' || cur_rec.object_name || '""';
+                                  END IF;
+                                EXCEPTION
+                                  WHEN OTHERS THEN
+                                    DBMS_OUTPUT.put_line('FAILED: DROP ' || cur_rec.object_type || ' ""' || cur_rec.object_name || '""');
+                                END;
+                              END LOOP;
+                            END;
+                            ";
+
+            stringBuilder
+               .Append(plsql);
         }
 
         public override void Generate(CreateSequenceOperation createSequenceOperation, IndentedStringBuilder stringBuilder, bool generateIdempotentSql)
@@ -680,15 +678,15 @@ namespace Microsoft.Data.Entity.Oracle
         public override string DelimitIdentifier(string identifier)
         {
             Check.NotEmpty(identifier, "identifier");
-
-            return "[" + EscapeIdentifier(identifier) + "]";
+            return base.DelimitIdentifier(identifier);
+            //return "[" + EscapeIdentifier(identifier) + "]";
         }
 
         public override string EscapeIdentifier(string identifier)
         {
             Check.NotEmpty(identifier, "identifier");
-
-            return identifier.Replace("]", "]]");
+            return base.EscapeIdentifier(identifier);
+           // return identifier.Replace("]", "]]");
         }
     }
 }

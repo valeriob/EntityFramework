@@ -34,7 +34,7 @@ namespace Microsoft.Data.Entity.Oracle
 
         // TODO: It may be possible to increase 128 to 900, at least for SQL Server
         private readonly RelationalTypeMapping _keyStringMapping
-            = new RelationalSizedTypeMapping("nvarchar(128)", DbType.String, 128);
+            = new RelationalSizedTypeMapping("nvarchar2(128)", DbType.String, 128);
 
         private readonly RelationalTypeMapping _nonKeyByteArrayMapping
             = new RelationalTypeMapping("varbinary(max)", DbType.Binary);

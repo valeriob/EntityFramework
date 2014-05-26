@@ -10,13 +10,18 @@ namespace Read
 {
     class Program
     {
-        public static string cs = "USER ID=onwmstcc2;PASSWORD=onwmstcc2;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS =(PROTOCOL=TCP)(HOST=vborioni-onit.cloudapp.net)(PORT=11521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=orcl)))";
+        //public static string cs = "USER ID=onwmstcc2;PASSWORD=onwmstcc2;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS =(PROTOCOL=TCP)(HOST=vborioni-onit.cloudapp.net)(PORT=11521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=orcl)))";
+        public static string cs = "USER ID=testef7;PASSWORD=testef7;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS =(PROTOCOL=TCP)(HOST=vborioni-onit.cloudapp.net)(PORT=11521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=orcl)))";
 
         static void Main(string[] args)
         {
             using (var ctx = new MyContext())
             {
+               // ctx.Database.Create();
+                //ctx.Database.CreateTables();
                 var test = ctx.Holdings.ToList();
+                ctx.Holdings.Add(new Holding { Codice = "ciao" });
+                ctx.SaveChanges();
             }
         }
     }
@@ -37,6 +42,7 @@ namespace Read
         protected override void OnConfiguring(DbContextOptions builder)
         {
             builder.UseOracle(Program.cs);
+            //builder.UseSqlServer(Program.cs);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

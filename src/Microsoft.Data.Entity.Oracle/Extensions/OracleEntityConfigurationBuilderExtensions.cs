@@ -18,7 +18,7 @@ namespace Microsoft.Data.Entity
             Check.NotEmpty(connectionString, "connectionString");
 
             builder.AddBuildAction(c => c.AddOrUpdateExtension<SqlServerConfigurationExtension>(x => x.ConnectionString = connectionString));
-
+      
             return builder;
         }
 

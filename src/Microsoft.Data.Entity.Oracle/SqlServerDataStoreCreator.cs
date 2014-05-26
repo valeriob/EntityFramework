@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -12,6 +11,8 @@ using Microsoft.Data.Entity.Migrations.Model;
 using Microsoft.Data.Entity.Relational;
 using Microsoft.Data.Entity.Oracle.Utilities;
 using Microsoft.Data.Entity.Storage;
+using Oracle.ManagedDataAccess.Client;
+using asd = Oracle.ManagedDataAccess.Client.OracleConnection;
 
 namespace Microsoft.Data.Entity.Oracle
 {
@@ -116,7 +117,7 @@ namespace Microsoft.Data.Entity.Oracle
                     _connection.Close();
                     return true;
                 }
-                catch (SqlException e)
+                catch (OracleException e)
                 {
                     if (IsDoesNotExist(e))
                     {
@@ -142,7 +143,7 @@ namespace Microsoft.Data.Entity.Oracle
                     _connection.Close();
                     return true;
                 }
-                catch (SqlException e)
+                catch (OracleException e)
                 {
                     if (IsDoesNotExist(e))
                     {
@@ -157,14 +158,14 @@ namespace Microsoft.Data.Entity.Oracle
             }
         }
 
-        private static bool IsDoesNotExist(SqlException exception)
+        private static bool IsDoesNotExist(OracleException exception)
         {
             // TODO Explore if there are important scenarios where this could give a false negative
             // Login failed is thrown when database does not exist
             return exception.Number == 4060;
         }
 
-        private bool RetryOnNoProcessOnEndOfPipe(SqlException exception, ref int retryCount)
+        private bool RetryOnNoProcessOnEndOfPipe(OracleException exception, ref int retryCount)
         {
             // This is to handle the case where Open throws:
             //   System.Data.SqlClient.SqlException : A connection was successfully established with the
@@ -217,14 +218,14 @@ namespace Microsoft.Data.Entity.Oracle
         private static void ClearAllPools()
         {
             // Clear connection pools in case there are active connections that are pooled
-            SqlConnection.ClearAllPools();
+            asd.ClearAllPools();
+           
         }
-
         private void ClearPool()
         {
             // Clear connection pool for the database connection since after the 'create database' call, a previously
             // invalid connection may now be valid.
-            SqlConnection.ClearPool((SqlConnection)_connection.DbConnection);
+            asd.ClearPool((asd)_connection.DbConnection);
         }
     }
 }

@@ -5,6 +5,10 @@ namespace Microsoft.Data.Entity.Relational.Update
 {
     public class ParameterNameGeneratorFactory
     {
+        public ParameterNameGeneratorFactory()
+        {
+
+        }
         public virtual ParameterNameGenerator Create()
         {
             return new ParameterNameGenerator();
