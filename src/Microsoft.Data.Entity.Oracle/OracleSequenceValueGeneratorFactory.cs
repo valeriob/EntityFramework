@@ -12,13 +12,13 @@ using Microsoft.Data.Entity.Oracle.Utilities;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerSequenceValueGeneratorFactory : IValueGeneratorFactory
+    public class OracleSequenceValueGeneratorFactory : IValueGeneratorFactory
     {
         public const int DefaultBlockSize = 10;
 
         private readonly SqlStatementExecutor _executor;
 
-        public SqlServerSequenceValueGeneratorFactory([NotNull] SqlStatementExecutor executor)
+        public OracleSequenceValueGeneratorFactory([NotNull] SqlStatementExecutor executor)
         {
             Check.NotNull(executor, "executor");
 
@@ -46,7 +46,7 @@ namespace Microsoft.Data.Entity.Oracle
 
         private static string DelimitSequenceName(string sequenceName)
         {
-            return new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).DelimitIdentifier(sequenceName);
+            return new OracleMigrationOperationSqlGenerator(new OracleTypeMapper()).DelimitIdentifier(sequenceName);
         }
 
         public virtual IReadOnlyList<MigrationOperation> GetUpMigrationOperations([NotNull] IProperty property)
@@ -84,7 +84,7 @@ namespace Microsoft.Data.Entity.Oracle
         {
             Check.NotNull(property, "property");
 
-            return new SqlServerSequenceValueGenerator(_executor, GetSequenceName(property), GetBlockSize(property));
+            return new OracleSequenceValueGenerator(_executor, GetSequenceName(property), GetBlockSize(property));
         }
 
         public virtual int GetPoolSize(IProperty property)

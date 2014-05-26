@@ -33,12 +33,12 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlStatementExecutor)));
 
             // SQL Server scoped
-            Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerDataStore)));
+            Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleDataStore)));
             Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleConnection)));
-            Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerBatchExecutor)));
+            Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleBatchExecutor)));
             Assert.True(services.Any(sd => sd.ServiceType == typeof(ModelDiffer)));
-            Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerMigrationOperationSqlGenerator)));
-            Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerDataStoreCreator)));
+            Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleMigrationOperationSqlGenerator)));
+            Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleDataStoreCreator)));
         }
 
         [Fact]
@@ -63,12 +63,12 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var sqlServerSqlGenerator = scopedProvider.GetService<SqlServerSqlGenerator>();
             var sqlStatementExecutor = scopedProvider.GetService<SqlStatementExecutor>();
 
-            var sqlServerDataStore = scopedProvider.GetService<SqlServerDataStore>();
+            var sqlServerDataStore = scopedProvider.GetService<OracleDataStore>();
             var sqlServerConnection = scopedProvider.GetService<OracleConnection>();
-            var sqlServerBatchExecutor = scopedProvider.GetService<SqlServerBatchExecutor>();
+            var sqlServerBatchExecutor = scopedProvider.GetService<OracleBatchExecutor>();
             var modelDiffer = scopedProvider.GetService<ModelDiffer>();
-            var sqlServerMigrationOperationSqlGenerator = scopedProvider.GetService<SqlServerMigrationOperationSqlGenerator>();
-            var sqlServerDataStoreCreator = scopedProvider.GetService<SqlServerDataStoreCreator>();
+            var sqlServerMigrationOperationSqlGenerator = scopedProvider.GetService<OracleMigrationOperationSqlGenerator>();
+            var sqlServerDataStoreCreator = scopedProvider.GetService<OracleDataStoreCreator>();
 
             Assert.NotNull(databaseBuilder);
             Assert.NotNull(arrayReaderFactory);
@@ -105,12 +105,12 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             Assert.Same(sqlStatementExecutor, scopedProvider.GetService<SqlStatementExecutor>());
 
             // Scoped
-            Assert.NotSame(sqlServerDataStore, scopedProvider.GetService<SqlServerDataStore>());
+            Assert.NotSame(sqlServerDataStore, scopedProvider.GetService<OracleDataStore>());
             Assert.NotSame(sqlServerConnection, scopedProvider.GetService<OracleConnection>());
-            Assert.NotSame(sqlServerBatchExecutor, scopedProvider.GetService<SqlServerBatchExecutor>());
+            Assert.NotSame(sqlServerBatchExecutor, scopedProvider.GetService<OracleBatchExecutor>());
             Assert.NotSame(modelDiffer, scopedProvider.GetService<ModelDiffer>());
-            Assert.NotSame(sqlServerMigrationOperationSqlGenerator, scopedProvider.GetService<SqlServerMigrationOperationSqlGenerator>());
-            Assert.NotSame(sqlServerDataStoreCreator, scopedProvider.GetService<SqlServerDataStoreCreator>());
+            Assert.NotSame(sqlServerMigrationOperationSqlGenerator, scopedProvider.GetService<OracleMigrationOperationSqlGenerator>());
+            Assert.NotSame(sqlServerDataStoreCreator, scopedProvider.GetService<OracleDataStoreCreator>());
 
             context.Dispose();
         }

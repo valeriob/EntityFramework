@@ -19,10 +19,10 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         {
             var tempFactory = new SimpleValueGeneratorFactory<TemporaryValueGenerator>();
 
-            var selector = new SqlServerValueGeneratorSelector(
+            var selector = new OracleValueGeneratorSelector(
                 new SimpleValueGeneratorFactory<GuidValueGenerator>(),
                 tempFactory,
-                new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor()),
+                new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor()),
                 new SimpleValueGeneratorFactory<SequentialGuidValueGenerator>());
 
             Assert.Same(tempFactory, selector.Select(CreateProperty(typeof(long), ValueGenerationOnAdd.Client)));
@@ -33,9 +33,9 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Returns_sequence_generator_for_all_integer_types_setup_for_server_values()
         {
-            var sequenceFactory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var sequenceFactory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
-            var selector = new SqlServerValueGeneratorSelector(
+            var selector = new OracleValueGeneratorSelector(
                 new SimpleValueGeneratorFactory<GuidValueGenerator>(),
                 new SimpleValueGeneratorFactory<TemporaryValueGenerator>(),
                 sequenceFactory,
@@ -52,10 +52,10 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         {
             var sequentialGuidFactory = new SimpleValueGeneratorFactory<SequentialGuidValueGenerator>();
 
-            var selector = new SqlServerValueGeneratorSelector(
+            var selector = new OracleValueGeneratorSelector(
                 new SimpleValueGeneratorFactory<GuidValueGenerator>(),
                 new SimpleValueGeneratorFactory<TemporaryValueGenerator>(),
-                new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor()),
+                new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor()),
                 sequentialGuidFactory);
 
             Assert.Same(sequentialGuidFactory, selector.Select(CreateProperty(typeof(Guid), ValueGenerationOnAdd.Client)));
@@ -64,10 +64,10 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Returns_null_when_no_value_generation_configured()
         {
-            var selector = new SqlServerValueGeneratorSelector(
+            var selector = new OracleValueGeneratorSelector(
                 new SimpleValueGeneratorFactory<GuidValueGenerator>(),
                 new SimpleValueGeneratorFactory<TemporaryValueGenerator>(),
-                new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor()),
+                new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor()),
                 new SimpleValueGeneratorFactory<SequentialGuidValueGenerator>());
 
             Assert.Null(selector.Select(CreateProperty(typeof(int), ValueGenerationOnAdd.None)));
@@ -76,10 +76,10 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Throws_for_unsupported_combinations()
         {
-            var selector = new SqlServerValueGeneratorSelector(
+            var selector = new OracleValueGeneratorSelector(
                 new SimpleValueGeneratorFactory<GuidValueGenerator>(),
                 new SimpleValueGeneratorFactory<TemporaryValueGenerator>(),
-                new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor()),
+                new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor()),
                 new SimpleValueGeneratorFactory<SequentialGuidValueGenerator>());
 
             var typeMock = new Mock<IEntityType>();

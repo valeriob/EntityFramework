@@ -10,7 +10,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
     {
         protected override Assembly TargetAssembly
         {
-            get { return typeof(SqlServerDataStore).Assembly; }
+            get { return typeof(OracleDataStore).Assembly; }
         }
     }
 }

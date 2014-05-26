@@ -51,20 +51,20 @@
     <PackageReference Include="Microsoft.Framework.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OracleCommandBatchPreparer.cs" />
+    <Compile Include="OracleParameterNameGeneratorFactory.cs" />
     <Compile Include="SequentialGuidValueGenerator.cs" />
-    <Compile Include="SqlServerBatchExecutor.cs" />
-    <Compile Include="SqlServerConfigurationExtension.cs" />
+    <Compile Include="OracleBatchExecutor.cs" />
+    <Compile Include="OracleConfigurationExtension.cs" />
     <Compile Include="OracleConnection.cs" />
-    <Compile Include="SqlServerDataStore.cs" />
-    <Compile Include="SqlServerDataStoreCreator.cs" />
-    <Compile Include="SqlServerDataStoreSource.cs" />
-    <Compile Include="SqlServerMigrationOperationSqlGenerator.cs" />
-    <Compile Include="SqlServerSequenceValueGenerator.cs" />
-    <Compile Include="SqlServerSequenceValueGeneratorFactory.cs" />
-    <Compile Include="SqlServerSimpleCommandExecutor.cs" />
-    <Compile Include="SqlServerSqlGenerator.cs" />
-    <Compile Include="SqlServerTypeMapper.cs" />
+    <Compile Include="OracleDataStore.cs" />
+    <Compile Include="OracleDataStoreCreator.cs" />
+    <Compile Include="OracleDataStoreSource.cs" />
+    <Compile Include="OracleMigrationOperationSqlGenerator.cs" />
+    <Compile Include="OracleSequenceValueGenerator.cs" />
+    <Compile Include="OracleSequenceValueGeneratorFactory.cs" />
+    <Compile Include="OracleSimpleCommandExecutor.cs" />
+    <Compile Include="OracleSqlGenerator.cs" />
+    <Compile Include="OracleTypeMapper.cs" />
     <Compile Include="Extensions\OracleEntityConfigurationBuilderExtensions.cs" />
     <Compile Include="Extensions\OracleEntityServicesBuilderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +72,8 @@
     <Compile Include="Properties\Strings.Designer.cs">
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerValueGeneratorCache.cs" />
-    <Compile Include="SqlServerValueGeneratorSelector.cs" />
+    <Compile Include="OracleValueGeneratorCache.cs" />
+    <Compile Include="OracleValueGeneratorSelector.cs" />
     <Compile Include="Utilities\Check.cs" />
     <Compile Include="Utilities\EnumerableExtensions.cs" />
     <Compile Include="..\Shared\CodeAnnotations.cs" />

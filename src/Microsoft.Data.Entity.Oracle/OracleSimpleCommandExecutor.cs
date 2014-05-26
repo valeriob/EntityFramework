@@ -10,19 +10,19 @@ using Microsoft.Data.Entity.Oracle.Utilities;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerSimpleCommandExecutor : IDbCommandExecutor
+    public class OracleSimpleCommandExecutor : IDbCommandExecutor
     {
         private const int DefaultCommandTimeout = 1;
 
         private readonly string _connectionString;
         private readonly int _commandTimeout;
 
-        public SqlServerSimpleCommandExecutor([NotNull] string connectionString)
+        public OracleSimpleCommandExecutor([NotNull] string connectionString)
             : this(Check.NotEmpty(connectionString, "connectionString"), DefaultCommandTimeout)
         {
         }
 
-        public SqlServerSimpleCommandExecutor([NotNull] string connectionString, int commandTimeout)
+        public OracleSimpleCommandExecutor([NotNull] string connectionString, int commandTimeout)
         {
             Check.NotEmpty(connectionString, "connectionString");
 

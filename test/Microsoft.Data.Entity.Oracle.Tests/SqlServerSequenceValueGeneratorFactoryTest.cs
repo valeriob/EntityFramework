@@ -22,7 +22,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             property.EntityType["StoreSequenceBlockSize"] = "-1";
             property.EntityType.Model["StoreSequenceBlockSize"] = "-1";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal(11, factory.GetBlockSize(property));
         }
@@ -34,7 +34,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             property.EntityType["StoreSequenceBlockSize"] = "11";
             property.EntityType.Model["StoreSequenceBlockSize"] = "-1";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal(11, factory.GetBlockSize(property));
         }
@@ -45,7 +45,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var property = CreateProperty();
             property.EntityType.Model["StoreSequenceBlockSize"] = "11";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal(11, factory.GetBlockSize(property));
         }
@@ -55,9 +55,9 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         {
             var property = CreateProperty();
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
-            Assert.Equal(SqlServerSequenceValueGeneratorFactory.DefaultBlockSize, factory.GetBlockSize(property));
+            Assert.Equal(OracleSequenceValueGeneratorFactory.DefaultBlockSize, factory.GetBlockSize(property));
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             property.EntityType["StoreSequenceName"] = "Jimmy";
             property.EntityType.Model["StoreSequenceName"] = "Jimmy";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal("Robert", factory.GetSequenceName(property));
         }
@@ -80,7 +80,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             property.EntityType["StoreSequenceName"] = "Robert";
             property.EntityType.Model["StoreSequenceName"] = "Jimmy";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal("Robert", factory.GetSequenceName(property));
         }
@@ -91,7 +91,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var property = CreateProperty();
             property.EntityType.Model["StoreSequenceName"] = "Robert";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal("Robert", factory.GetSequenceName(property));
         }
@@ -101,7 +101,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         {
             var property = CreateProperty();
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal("MyTable_Sequence", factory.GetSequenceName(property));
         }
@@ -113,7 +113,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             property["StoreSequenceBlockSize"] = "11";
             property["StoreSequenceName"] = "Plant";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             var operation = (CreateSequenceOperation)factory.GetUpMigrationOperations(property).Single();
 
@@ -129,7 +129,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var property = CreateProperty();
             property["StoreSequenceName"] = "Page";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             var operation = (DropSequenceOperation)factory.GetDownMigrationOperations(property).Single();
 
@@ -143,9 +143,9 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             property["StoreSequenceBlockSize"] = "11";
             property["StoreSequenceName"] = "Zeppelin";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
-            var generator = (SqlServerSequenceValueGenerator)factory.Create(property);
+            var generator = (OracleSequenceValueGenerator)factory.Create(property);
 
             Assert.Equal("Zeppelin", generator.SequenceName);
             Assert.Equal(11, generator.BlockSize);
@@ -156,7 +156,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         {
             var property = CreateProperty();
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal(5, factory.GetPoolSize(property));
         }
@@ -167,7 +167,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var property = CreateProperty();
             property["StoreSequenceName"] = "Led";
 
-            var factory = new SqlServerSequenceValueGeneratorFactory(new SqlStatementExecutor());
+            var factory = new OracleSequenceValueGeneratorFactory(new SqlStatementExecutor());
 
             Assert.Equal("Led", factory.GetCacheKey(property));
         }

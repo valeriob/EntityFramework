@@ -64,7 +64,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Does_non_key_SQL_Server_string_mapping()
         {
-            var typeMapping = new SqlServerTypeMapper()
+            var typeMapping = new OracleTypeMapper()
                 .GetTypeMapping(null, "MyColumn", typeof(string), isKey: false, isConcurrencyToken: false);
 
             Assert.Equal(DbType.String, typeMapping.StoreType);
@@ -74,7 +74,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Does_key_SQL_Server_string_mapping()
         {
-            var typeMapping = (RelationalSizedTypeMapping)new SqlServerTypeMapper()
+            var typeMapping = (RelationalSizedTypeMapping)new OracleTypeMapper()
                 .GetTypeMapping(null, "MyColumn", typeof(string), isKey: true, isConcurrencyToken: false);
 
             Assert.Equal(DbType.String, typeMapping.StoreType);
@@ -85,7 +85,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Does_rowversion_mapping()
         {
-            var typeMapping = (RelationalSizedTypeMapping)new SqlServerTypeMapper()
+            var typeMapping = (RelationalSizedTypeMapping)new OracleTypeMapper()
                 .GetTypeMapping(null, "MyColumn", typeof(byte[]), isKey: false, isConcurrencyToken: true);
 
             Assert.Equal(DbType.Binary, typeMapping.StoreType);
@@ -95,7 +95,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
 
         private static RelationalTypeMapping GetTypeMapping(Type propertyType)
         {
-            return new SqlServerTypeMapper().GetTypeMapping(null, "MyColumn", propertyType, isKey: false, isConcurrencyToken: false);
+            return new OracleTypeMapper().GetTypeMapping(null, "MyColumn", propertyType, isKey: false, isConcurrencyToken: false);
         }
     }
 }

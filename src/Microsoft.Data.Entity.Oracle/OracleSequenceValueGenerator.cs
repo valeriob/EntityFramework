@@ -16,7 +16,7 @@ using Microsoft.Data.Entity.Utilities;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerSequenceValueGenerator : IValueGenerator
+    public class OracleSequenceValueGenerator : IValueGenerator
     {
         private readonly AsyncLock _lock = new AsyncLock();
         private readonly SqlStatementExecutor _executor;
@@ -24,7 +24,7 @@ namespace Microsoft.Data.Entity.Oracle
         private readonly int _blockSize;
         private SequenceValue _currentValue = new SequenceValue(-1, 0);
 
-        public SqlServerSequenceValueGenerator(
+        public OracleSequenceValueGenerator(
             [NotNull] SqlStatementExecutor executor,
             [NotNull] string sequenceName,
             int blockSize)

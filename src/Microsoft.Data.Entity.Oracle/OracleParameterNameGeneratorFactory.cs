@@ -9,21 +9,8 @@ using Microsoft.Data.Entity.Relational.Utilities;
 
 namespace Microsoft.Data.Entity.Relational.Update
 {
-    //public class OracleCommandBatchPreparer : CommandBatchPreparer
-    //{
-    //    public OracleCommandBatchPreparer([NotNull] OracleParameterNameGeneratorFactory parameterNameGeneratorFactory) : base(parameterNameGeneratorFactory)
-    //    {
-
-    //    }
-
-    //}
-
     public class OracleParameterNameGeneratorFactory : ParameterNameGeneratorFactory
     {
-        public OracleParameterNameGeneratorFactory()
-        {
-
-        }
         public override ParameterNameGenerator Create()
         {
             return new OracleParameterNameGenerator();

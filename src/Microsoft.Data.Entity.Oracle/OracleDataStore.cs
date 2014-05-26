@@ -8,13 +8,13 @@ using Microsoft.Data.Entity.Relational.Update;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerDataStore : RelationalDataStore
+    public class OracleDataStore : RelationalDataStore
     {
-        public SqlServerDataStore(
+        public OracleDataStore(
             [NotNull] DbContextConfiguration configuration,
             [NotNull] OracleConnection connection,
             [NotNull] CommandBatchPreparer batchPreparer,
-            [NotNull] SqlServerBatchExecutor batchExecutor)
+            [NotNull] OracleBatchExecutor batchExecutor)
             : base(configuration, connection, batchPreparer, batchExecutor)
         {
         }

@@ -7,13 +7,13 @@ using Microsoft.Data.Entity.Storage;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerDataStoreSource
+    public class OracleDataStoreSource
         : DataStoreSource<
-            SqlServerDataStore,
+            OracleDataStore,
             SqlServerConfigurationExtension,
-            SqlServerDataStoreCreator,
+            OracleDataStoreCreator,
             OracleConnection,
-            SqlServerValueGeneratorCache>
+            OracleValueGeneratorCache>
     {
         public override bool IsAvailable(DbContextConfiguration configuration)
         {
@@ -25,7 +25,7 @@ namespace Microsoft.Data.Entity.Oracle
 
         public override string Name
         {
-            get { return typeof(SqlServerDataStore).Name; }
+            get { return typeof(OracleDataStore).Name; }
         }
     }
 }

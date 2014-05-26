@@ -10,11 +10,11 @@ using Microsoft.Data.Entity.Utilities;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerMigrationOperationSqlGenerator : MigrationOperationSqlGenerator
+    public class OracleMigrationOperationSqlGenerator : MigrationOperationSqlGenerator
     {
         private int _variableCount;
 
-        public SqlServerMigrationOperationSqlGenerator([NotNull] SqlServerTypeMapper typeMapper)
+        public OracleMigrationOperationSqlGenerator([NotNull] OracleTypeMapper typeMapper)
             : base(typeMapper)
         {
         }

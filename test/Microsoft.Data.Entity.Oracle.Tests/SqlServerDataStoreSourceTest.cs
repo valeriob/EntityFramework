@@ -12,7 +12,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
         [Fact]
         public void Returns_appropriate_name()
         {
-            Assert.Equal(typeof(SqlServerDataStore).Name, new SqlServerDataStoreSource().Name);
+            Assert.Equal(typeof(OracleDataStore).Name, new SqlOracleDataStoreSourceName);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var configurationMock = new Mock<DbContextConfiguration>();
             configurationMock.Setup(m => m.ContextOptions).Returns(configuration);
 
-            Assert.True(new SqlServerDataStoreSource().IsConfigured(configurationMock.Object));
+            Assert.True(new OracleDataStoreSource().IsConfigured(configurationMock.Object));
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var configurationMock = new Mock<DbContextConfiguration>();
             configurationMock.Setup(m => m.ContextOptions).Returns(configuration);
 
-            Assert.False(new SqlServerDataStoreSource().IsConfigured(configurationMock.Object));
+            Assert.False(new OracleDataStoreSource().IsConfigured(configurationMock.Object));
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var configurationMock = new Mock<DbContextConfiguration>();
             configurationMock.Setup(m => m.ContextOptions).Returns(configuration);
 
-            Assert.True(new SqlServerDataStoreSource().IsAvailable(configurationMock.Object));
+            Assert.True(new OracleDataStoreSource().IsAvailable(configurationMock.Object));
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             var configurationMock = new Mock<DbContextConfiguration>();
             configurationMock.Setup(m => m.ContextOptions).Returns(configuration);
 
-            Assert.False(new SqlServerDataStoreSource().IsAvailable(configurationMock.Object));
+            Assert.False(new OracleDataStoreSource().IsAvailable(configurationMock.Object));
         }
     }
 }

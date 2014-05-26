@@ -6,12 +6,12 @@ using Microsoft.Data.Entity.Relational.Update;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerBatchExecutor : BatchExecutor
+    public class OracleBatchExecutor : BatchExecutor
     {
-        public SqlServerBatchExecutor(
+        public OracleBatchExecutor(
             [NotNull] SqlServerSqlGenerator sqlGenerator,
             [NotNull] OracleConnection connection,
-            [NotNull] SqlServerTypeMapper parameterFactory)
+            [NotNull] OracleTypeMapper parameterFactory)
             : base(sqlGenerator, connection, parameterFactory)
         {
         }

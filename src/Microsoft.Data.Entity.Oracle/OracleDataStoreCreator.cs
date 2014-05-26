@@ -16,17 +16,17 @@ using asd = Oracle.ManagedDataAccess.Client.OracleConnection;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerDataStoreCreator : DataStoreCreator
+    public class OracleDataStoreCreator : DataStoreCreator
     {
         private readonly OracleConnection _connection;
         private readonly ModelDiffer _modelDiffer;
-        private readonly SqlServerMigrationOperationSqlGenerator _sqlGenerator;
+        private readonly OracleMigrationOperationSqlGenerator _sqlGenerator;
         private readonly SqlStatementExecutor _statementExecutor;
 
-        public SqlServerDataStoreCreator(
+        public OracleDataStoreCreator(
             [NotNull] OracleConnection connection,
             [NotNull] ModelDiffer modelDiffer,
-            [NotNull] SqlServerMigrationOperationSqlGenerator sqlGenerator,
+            [NotNull] OracleMigrationOperationSqlGenerator sqlGenerator,
             [NotNull] SqlStatementExecutor statementExecutor)
         {
             Check.NotNull(connection, "connection");

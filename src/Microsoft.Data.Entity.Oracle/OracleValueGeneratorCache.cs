@@ -6,9 +6,9 @@ using Microsoft.Data.Entity.Identity;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerValueGeneratorCache : ValueGeneratorCache
+    public class OracleValueGeneratorCache : ValueGeneratorCache
     {
-        public SqlServerValueGeneratorCache([NotNull] SqlServerValueGeneratorSelector selector)
+        public OracleValueGeneratorCache([NotNull] OracleValueGeneratorSelector selector)
             : base(selector)
         {
         }

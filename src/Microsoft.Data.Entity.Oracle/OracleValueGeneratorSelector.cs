@@ -9,16 +9,16 @@ using Microsoft.Data.Entity.Oracle.Utilities;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerValueGeneratorSelector : ValueGeneratorSelector
+    public class OracleValueGeneratorSelector : ValueGeneratorSelector
     {
         private readonly SimpleValueGeneratorFactory<TemporaryValueGenerator> _tempFactory;
-        private readonly SqlServerSequenceValueGeneratorFactory _sequenceFactory;
+        private readonly OracleSequenceValueGeneratorFactory _sequenceFactory;
         private readonly SimpleValueGeneratorFactory<SequentialGuidValueGenerator> _sequentialGuidFactory;
 
-        public SqlServerValueGeneratorSelector(
+        public OracleValueGeneratorSelector(
             [NotNull] SimpleValueGeneratorFactory<GuidValueGenerator> guidFactory,
             [NotNull] SimpleValueGeneratorFactory<TemporaryValueGenerator> tempFactory,
-            [NotNull] SqlServerSequenceValueGeneratorFactory sequenceFactory,
+            [NotNull] OracleSequenceValueGeneratorFactory sequenceFactory,
             [NotNull] SimpleValueGeneratorFactory<SequentialGuidValueGenerator> sequentialGuidFactory)
             : base(guidFactory)
         {

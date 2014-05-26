@@ -8,7 +8,7 @@ using Microsoft.Data.Entity.Relational.Model;
 
 namespace Microsoft.Data.Entity.Oracle
 {
-    public class SqlServerTypeMapper : RelationalTypeMapper
+    public class OracleTypeMapper : RelationalTypeMapper
     {
         // This dictionary is for invariant mappings from a sealed CLR type to a single
         // store type. If the CLR type is unsealed or if the mapping varies based on how the

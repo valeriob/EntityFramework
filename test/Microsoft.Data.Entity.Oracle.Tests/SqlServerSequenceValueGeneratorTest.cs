@@ -24,7 +24,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             configMock.Setup(m => m.Connection).Returns(new Mock<RelationalConnection>().Object);
 
             var executor = new FakeSqlStatementExecutor(10);
-            var generator = new SqlServerSequenceValueGenerator(executor, "Foo", 10);
+            var generator = new OracleSequenceValueGenerator(executor, "Foo", 10);
 
             for (var i = 0; i < 15; i++)
             {
@@ -54,7 +54,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             configMock.Setup(m => m.Connection).Returns(new Mock<RelationalConnection>().Object);
 
             var executor = new FakeSqlStatementExecutor(10);
-            var generator = new SqlServerSequenceValueGenerator(executor, "Foo", 10);
+            var generator = new OracleSequenceValueGenerator(executor, "Foo", 10);
 
             for (var i = 0; i < 15; i++)
             {
@@ -84,7 +84,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             configMock.Setup(m => m.Connection).Returns(new Mock<RelationalConnection>().Object);
 
             var executor = new FakeSqlStatementExecutor(10);
-            var generator = new SqlServerSequenceValueGenerator(executor, "Foo", 10);
+            var generator = new OracleSequenceValueGenerator(executor, "Foo", 10);
 
             const int threadCount = 50;
             const int valueCount = 35;
@@ -127,7 +127,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
             configMock.Setup(m => m.Connection).Returns(new Mock<RelationalConnection>().Object);
 
             var executor = new FakeSqlStatementExecutor(10);
-            var generator = new SqlServerSequenceValueGenerator(executor, "Foo", 10);
+            var generator = new OracleSequenceValueGenerator(executor, "Foo", 10);
 
             const int threadCount = 50;
             const int valueCount = 35;

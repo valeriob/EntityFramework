@@ -28,20 +28,20 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddSingleton(typeof(Microsoft.Data.Entity.Relational.Update.ParameterNameGeneratorFactory), typeof(Microsoft.Data.Entity.Relational.Update.OracleParameterNameGeneratorFactory))
                 .AddSingleton<CommandBatchPreparer>()
 
-                .AddSingleton<DataStoreSource, SqlServerDataStoreSource>()
-                .AddSingleton<SqlServerValueGeneratorCache>()
-                .AddSingleton<SqlServerValueGeneratorSelector>()
+                .AddSingleton<DataStoreSource, OracleDataStoreSource>()
+                .AddSingleton<OracleValueGeneratorCache>()
+                .AddSingleton<OracleValueGeneratorSelector>()
                 .AddSingleton<SimpleValueGeneratorFactory<SequentialGuidValueGenerator>>()
-                .AddSingleton<SqlServerSequenceValueGeneratorFactory>()
+                .AddSingleton<OracleSequenceValueGeneratorFactory>()
                 .AddSingleton<SqlServerSqlGenerator>()
                 .AddSingleton<SqlStatementExecutor>()
-                .AddSingleton<SqlServerTypeMapper>()
-                .AddScoped<SqlServerDataStore>()
+                .AddSingleton<OracleTypeMapper>()
+                .AddScoped<OracleDataStore>()
                 .AddScoped<OracleConnection>()
-                .AddScoped<SqlServerBatchExecutor>()
+                .AddScoped<OracleBatchExecutor>()
                 .AddScoped<ModelDiffer, ModelDiffer>()
-                .AddScoped<SqlServerMigrationOperationSqlGenerator>()
-                .AddScoped<SqlServerDataStoreCreator>();
+                .AddScoped<OracleMigrationOperationSqlGenerator>()
+                .AddScoped<OracleDataStoreCreator>();
 
 
             return builder;

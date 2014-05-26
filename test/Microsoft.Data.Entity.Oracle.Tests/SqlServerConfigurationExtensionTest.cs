@@ -23,7 +23,7 @@ namespace Microsoft.Data.Entity.Oracle.Tests
 
             _applyServices.Invoke(new SqlServerConfigurationExtension(), new object[] { builder });
 
-            Assert.True(services.Any(sd => sd.ServiceType == typeof(SqlServerDataStore)));
+            Assert.True(services.Any(sd => sd.ServiceType == typeof(OracleDataStore)));
         }
 
         [Fact]

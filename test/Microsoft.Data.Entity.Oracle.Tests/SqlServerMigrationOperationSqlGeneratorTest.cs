@@ -240,13 +240,13 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "nvarchar(max)",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(string))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(string))));
         }
 
         [Fact]
         public void GenerateDataType_for_string_key()
         {
-            var sqlGenerator = new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper());
+            var sqlGenerator = new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper;
 
             var column = new Column("Username", typeof(string));
             var table = new Table("dbo.Users");
@@ -261,7 +261,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "datetime2",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(DateTime))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(DateTime))));
         }
 
         [Fact]
@@ -269,7 +269,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "decimal(18, 2)",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(decimal))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(decimal))));
         }
 
         [Fact]
@@ -277,7 +277,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "uniqueidentifier",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(Guid))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(Guid))));
         }
 
         [Fact]
@@ -285,7 +285,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "bit",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(bool))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(bool))));
         }
 
         [Fact]
@@ -293,7 +293,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "tinyint",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(byte))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(byte))));
         }
 
         [Fact]
@@ -301,7 +301,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "int",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(char))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(char))));
         }
 
         [Fact]
@@ -309,7 +309,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "float",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(double))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(double))));
         }
 
         [Fact]
@@ -317,7 +317,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "smallint",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(short))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(short))));
         }
 
         [Fact]
@@ -325,7 +325,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "bigint",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(long))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(long))));
         }
 
         [Fact]
@@ -333,7 +333,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "smallint",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(sbyte))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(sbyte))));
         }
 
         [Fact]
@@ -341,7 +341,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "real",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(float))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(float))));
         }
 
         [Fact]
@@ -349,7 +349,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "int",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(ushort))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(ushort))));
         }
 
         [Fact]
@@ -357,7 +357,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "bigint",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(uint))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(uint))));
         }
 
         [Fact]
@@ -365,7 +365,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "numeric(20, 0)",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(ulong))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(ulong))));
         }
 
         [Fact]
@@ -373,7 +373,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "datetimeoffset",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(DateTimeOffset))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(DateTimeOffset))));
         }
 
         [Fact]
@@ -381,7 +381,7 @@ IF @var0 IS NOT NULL
         {
             Assert.Equal(
                 "varbinary(max)",
-                new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(CreateColumn(typeof(byte[]))));
+                new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(CreateColumn(typeof(byte[]))));
         }
 
         [Fact]
@@ -391,7 +391,7 @@ IF @var0 IS NOT NULL
             var table = new Table("dbo.Users") { PrimaryKey = new PrimaryKey("PK_Users", new[] { column }) };
             table.AddColumn(column);
 
-            Assert.Equal("varbinary(128)", new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(column));
+            Assert.Equal("varbinary(128)", new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(column));
         }
 
         [Fact]
@@ -401,7 +401,7 @@ IF @var0 IS NOT NULL
             var table = new Table("dbo.Users");
             table.AddColumn(column);
 
-            Assert.Equal("rowversion", new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper()).GenerateDataType(column));
+            Assert.Equal("rowversion", new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper.GenerateDataType(column));
         }
 
         private static Column CreateColumn(Type clrType)
@@ -415,7 +415,7 @@ IF @var0 IS NOT NULL
         [Fact]
         public void Delimit_identifier()
         {
-            var sqlGenerator = new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper());
+            var sqlGenerator = new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper;
 
             Assert.Equal("[foo[]]bar]", sqlGenerator.DelimitIdentifier("foo[]bar"));
         }
@@ -423,7 +423,7 @@ IF @var0 IS NOT NULL
         [Fact]
         public void Escape_identifier()
         {
-            var sqlGenerator = new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper());
+            var sqlGenerator = new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper;
 
             Assert.Equal("foo[]]]]bar", sqlGenerator.EscapeIdentifier("foo[]]bar"));
         }
@@ -431,7 +431,7 @@ IF @var0 IS NOT NULL
         [Fact]
         public void Delimit_literal()
         {
-            var sqlGenerator = new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper());
+            var sqlGenerator = new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper;
 
             Assert.Equal("'foo''bar'", sqlGenerator.DelimitLiteral("foo'bar"));
         }
@@ -439,14 +439,14 @@ IF @var0 IS NOT NULL
         [Fact]
         public void Escape_literal()
         {
-            var sqlGenerator = new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper());
+            var sqlGenerator = new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper;
 
             Assert.Equal("foo''bar", sqlGenerator.EscapeLiteral("foo'bar"));
         }
 
         private static SqlStatement Generate(MigrationOperation migrationOperation, bool generateIdempotentSql)
         {
-            var sqlGenerator = new SqlServerMigrationOperationSqlGenerator(new SqlServerTypeMapper());
+            var sqlGenerator = new OracleMigrationOperationSqlGenerator(new SqlOracleTypeMapper;
 
             return sqlGenerator.Generate(new[] { migrationOperation }, generateIdempotentSql).Single();
         }
