@@ -41,17 +41,20 @@ namespace Microsoft.Data.Entity.Oracle
                                             ) LOOP
                                 BEGIN
                                   IF cur_rec.object_type = 'TABLE' THEN
-                                    EXECUTE IMMEDIATE 'DROP ' || cur_rec.object_type || ' \""' || cur_rec.object_name || '"" CASCADE CONSTRAINTS';
+                                    EXECUTE IMMEDIATE 'DROP ' || cur_rec.object_type || ' ""' || cur_rec.object_name || '"" CASCADE CONSTRAINTS';
                                   ELSE
                                     EXECUTE IMMEDIATE 'DROP ' || cur_rec.object_type || ' ""' || cur_rec.object_name || '""';
                                   END IF;
                                 EXCEPTION
                                   WHEN OTHERS THEN
                                     DBMS_OUTPUT.put_line('FAILED: DROP ' || cur_rec.object_type || ' ""' || cur_rec.object_name || '""');
+                                    --RAISE;
                                 END;
                               END LOOP;
                             END;
                             ";
+
+   
 
             stringBuilder
                .Append(plsql);

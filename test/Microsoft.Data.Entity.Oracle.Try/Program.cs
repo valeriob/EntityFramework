@@ -19,6 +19,8 @@ namespace Read
             {
                // ctx.Database.Create();
                 //ctx.Database.CreateTables();
+                ctx.Database.Delete();
+                ctx.Database.CreateTables();
                 var test = ctx.Holdings.ToList();
                 ctx.Holdings.Add(new Holding { Codice = "ciao3" });
                 ctx.SaveChanges();

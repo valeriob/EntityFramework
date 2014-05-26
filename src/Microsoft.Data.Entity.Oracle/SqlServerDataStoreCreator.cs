@@ -187,7 +187,7 @@ namespace Microsoft.Data.Entity.Oracle
         {
             ClearAllPools();
 
-            using (var masterConnection = _connection.CreateMasterConnection())
+            using (var masterConnection = _connection.DbConnection)
             {
                 _statementExecutor.ExecuteNonQuery(masterConnection, CreateDropCommands());
             }
@@ -197,7 +197,7 @@ namespace Microsoft.Data.Entity.Oracle
         {
             ClearAllPools();
 
-            using (var masterConnection = _connection.CreateMasterConnection())
+            using (var masterConnection = _connection.DbConnection)
             {
                 await _statementExecutor.ExecuteNonQueryAsync(masterConnection, CreateDropCommands(), cancellationToken);
             }
