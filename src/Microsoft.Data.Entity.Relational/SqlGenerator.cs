@@ -269,7 +269,9 @@ namespace Microsoft.Data.Entity.Relational
         public virtual void AppendBatchHeader([NotNull] StringBuilder commandStringBuilder)
         {
         }
-
+        public virtual void AppendBatchFooter([NotNull] StringBuilder commandStringBuilder)
+        {
+        }
         public virtual string BatchCommandSeparator
         {
             get { return ";"; }

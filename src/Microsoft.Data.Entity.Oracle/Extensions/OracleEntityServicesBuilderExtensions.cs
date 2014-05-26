@@ -20,6 +20,7 @@ namespace Microsoft.Framework.DependencyInjection
 
             builder//.ServiceCollection.AddSingleton<Microsoft.Data.Entity.Relational.Update.OracleParameterNameGeneratorFactory>()
                 .AddRelational().ServiceCollection
+                .AddSingleton(typeof(Microsoft.Data.Entity.Relational.Update.ParameterNameGeneratorFactory), typeof(Microsoft.Data.Entity.Relational.Update.OracleParameterNameGeneratorFactory))
                 .AddSingleton<DataStoreSource, SqlServerDataStoreSource>()
                 .AddSingleton<SqlServerValueGeneratorCache>()
                 .AddSingleton<SqlServerValueGeneratorSelector>()
@@ -28,7 +29,6 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddSingleton<SqlServerSqlGenerator>()
                 .AddSingleton<SqlStatementExecutor>()
                 .AddSingleton<SqlServerTypeMapper>()
-                .AddSingleton(typeof(Microsoft.Data.Entity.Relational.Update.OracleParameterNameGeneratorFactory), typeof(Microsoft.Data.Entity.Relational.Update.ParameterNameGeneratorFactory))
                 .AddScoped<SqlServerDataStore>()
                 .AddScoped<OracleConnection>()
                 .AddScoped<SqlServerBatchExecutor>()
@@ -36,7 +36,7 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddScoped<SqlServerMigrationOperationSqlGenerator>()
                 .AddScoped<SqlServerDataStoreCreator>();
 
-           
+
             return builder;
         }
     }

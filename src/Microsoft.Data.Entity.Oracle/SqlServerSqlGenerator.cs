@@ -14,7 +14,31 @@ namespace Microsoft.Data.Entity.Oracle
         {
             Check.NotNull(commandStringBuilder, "commandStringBuilder");
 
-            commandStringBuilder.Append("SET NOCOUNT OFF");
+            commandStringBuilder.AppendLine("BEGIN");
+            // Dummy statement due to ModificationCommandBatch structure
+            commandStringBuilder.Append("NULL");
+
+//            var batch = @"BEGIN
+//                select * from table1;
+//                select * from table2;
+//                select * from table3;
+//            END;";
+        }
+
+        public override void AppendBatchFooter(StringBuilder commandStringBuilder)
+        {
+            Check.NotNull(commandStringBuilder, "commandStringBuilder");
+            commandStringBuilder.AppendLine();
+            commandStringBuilder.Append("END;");
+        }
+
+        
+
+        public override string QuoteIdentifier(string identifier)
+        {
+            Check.NotNull(identifier, "identifier");
+
+            return "\"" + identifier.Replace("\"", "\"\"") + "\"";
         }
 
         protected override void AppendIdentityWhereCondition(StringBuilder commandStringBuilder, ColumnModification columnModification)

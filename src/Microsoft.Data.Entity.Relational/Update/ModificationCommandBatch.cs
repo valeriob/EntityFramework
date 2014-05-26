@@ -55,6 +55,8 @@ namespace Microsoft.Data.Entity.Relational.Update
                 stringBuilder.Append(sqlGenerator.BatchCommandSeparator).AppendLine();
             }
 
+            sqlGenerator.AppendBatchFooter(stringBuilder);
+
             return stringBuilder.ToString();
         }
 
