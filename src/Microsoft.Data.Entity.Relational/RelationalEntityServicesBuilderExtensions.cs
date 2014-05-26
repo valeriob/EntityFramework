@@ -22,7 +22,7 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddSingleton<DatabaseBuilder>()
                 .AddSingleton<RelationalObjectArrayValueReaderFactory>()
                 .AddSingleton<RelationalTypedValueReaderFactory>()
-                //.AddSingleton<ParameterNameGeneratorFactory>()
+                .AddSingleton<ParameterNameGeneratorFactory>()
                 .AddSingleton<CommandBatchPreparer>();
 
             return builder;

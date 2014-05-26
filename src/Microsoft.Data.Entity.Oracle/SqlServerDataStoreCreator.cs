@@ -187,9 +187,9 @@ namespace Microsoft.Data.Entity.Oracle
         {
             ClearAllPools();
 
-            using (var masterConnection = _connection.DbConnection)
+            //using (var masterConnection = _connection.DbConnection)
             {
-                _statementExecutor.ExecuteNonQuery(masterConnection, CreateDropCommands());
+                _statementExecutor.ExecuteNonQuery(_connection.DbConnection, CreateDropCommands());
             }
         }
 
@@ -197,9 +197,9 @@ namespace Microsoft.Data.Entity.Oracle
         {
             ClearAllPools();
 
-            using (var masterConnection = _connection.DbConnection)
+            //using (var masterConnection = _connection.DbConnection)
             {
-                await _statementExecutor.ExecuteNonQueryAsync(masterConnection, CreateDropCommands(), cancellationToken);
+                await _statementExecutor.ExecuteNonQueryAsync(_connection.DbConnection, CreateDropCommands(), cancellationToken);
             }
         }
 
@@ -207,8 +207,7 @@ namespace Microsoft.Data.Entity.Oracle
         {
             var operations = new MigrationOperation[]
                 {
-                    // TODO Check DbConnection.Database always gives us what we want
-                    new DropDatabaseOperation(_connection.DbConnection.Database)
+                    new DropDatabaseOperation(_connection.DbConnection.DataSource)
                 };
 
             var masterCommands = _sqlGenerator.Generate(operations, generateIdempotentSql: false);

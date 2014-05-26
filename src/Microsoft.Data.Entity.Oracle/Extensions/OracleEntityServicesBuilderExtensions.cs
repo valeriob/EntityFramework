@@ -8,6 +8,7 @@ using Microsoft.Data.Entity.Relational;
 using Microsoft.Data.Entity.Oracle;
 using Microsoft.Data.Entity.Oracle.Utilities;
 using Microsoft.Data.Entity.Storage;
+using Microsoft.Data.Entity.Relational.Update;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Framework.DependencyInjection
@@ -18,9 +19,15 @@ namespace Microsoft.Framework.DependencyInjection
         {
             Check.NotNull(builder, "builder");
 
-            builder//.ServiceCollection.AddSingleton<Microsoft.Data.Entity.Relational.Update.OracleParameterNameGeneratorFactory>()
-                .AddRelational().ServiceCollection
+            builder
+                //.AddRelational()
+                .ServiceCollection
+                .AddSingleton<DatabaseBuilder>()
+                .AddSingleton<RelationalObjectArrayValueReaderFactory>()
+                .AddSingleton<RelationalTypedValueReaderFactory>()
                 .AddSingleton(typeof(Microsoft.Data.Entity.Relational.Update.ParameterNameGeneratorFactory), typeof(Microsoft.Data.Entity.Relational.Update.OracleParameterNameGeneratorFactory))
+                .AddSingleton<CommandBatchPreparer>()
+
                 .AddSingleton<DataStoreSource, SqlServerDataStoreSource>()
                 .AddSingleton<SqlServerValueGeneratorCache>()
                 .AddSingleton<SqlServerValueGeneratorSelector>()

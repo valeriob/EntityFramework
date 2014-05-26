@@ -25,7 +25,6 @@ namespace Microsoft.Framework.DependencyInjection
                 .AddSingleton<SQLiteSqlGenerator>()
                 .AddSingleton<SqlStatementExecutor>()
                 .AddSingleton<SQLiteTypeMapper>()
-                .AddSingleton<Microsoft.Data.Entity.Relational.Update.ParameterNameGeneratorFactory>()
                 .AddScoped<SQLiteDataStore>()
                 .AddScoped<SQLiteConnectionConnection>()
                 .AddScoped<SQLiteBatchExecutor>()

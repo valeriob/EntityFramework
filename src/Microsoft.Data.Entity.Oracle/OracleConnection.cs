@@ -25,9 +25,11 @@ namespace Microsoft.Data.Entity.Oracle
 
         public virtual OracleManagedConnection CreateMasterConnection()
         {
-            var builder = new SqlConnectionStringBuilder { ConnectionString = ConnectionString };
-            builder.InitialCatalog = "master";
-            return new OracleManagedConnection(builder.ConnectionString);
+            var builder = new global::Oracle.ManagedDataAccess.Client.OracleConnectionStringBuilder(ConnectionString);
+           
+            //builder.InitialCatalog = "master";
+            var con = new OracleManagedConnection(builder.ConnectionString);
+            return con;
         }
     }
 }
