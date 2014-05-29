@@ -5,6 +5,7 @@ using System;
 using System.Data;
 using System.Linq;
 using Microsoft.Data.Entity.Relational.Model;
+using Microsoft.Data.Entity.Relational.Model.Oracle;
 
 namespace Microsoft.Data.Entity.Oracle
 {
@@ -15,14 +16,15 @@ namespace Microsoft.Data.Entity.Oracle
         // type is used (e.g. in keys), then add custom mapping below.
         private readonly Tuple<Type, RelationalTypeMapping>[] _simpleMappings =
             {
-                Tuple.Create(typeof(int), new RelationalTypeMapping("int", DbType.Int32)),
-                Tuple.Create(typeof(DateTime), new RelationalTypeMapping("datetime2", DbType.DateTime2)),
-                Tuple.Create(typeof(Guid), new RelationalTypeMapping("uniqueidentifier", DbType.Guid)),
-                Tuple.Create(typeof(bool), new RelationalTypeMapping("bit", DbType.Boolean)),
-                Tuple.Create(typeof(byte), new RelationalTypeMapping("tinyint", DbType.Byte)),
-                Tuple.Create(typeof(double), new RelationalTypeMapping("float", DbType.Double)),
-                Tuple.Create(typeof(DateTimeOffset), new RelationalTypeMapping("datetimeoffset", DbType.DateTimeOffset)),
-                Tuple.Create(typeof(char), new RelationalTypeMapping("int", DbType.Int32)),
+                Tuple.Create(typeof(int), new RelationalTypeMapping("NUMBER(9)", DbType.Int32)),
+                Tuple.Create(typeof(DateTime), new RelationalTypeMapping("TIMESTAMP(6)", DbType.DateTime)),
+                Tuple.Create(typeof(Guid), (RelationalTypeMapping)new OracleRelationalTypeMapping("RAW(16)", DbType.Binary)),
+                Tuple.Create(typeof(bool), new RelationalTypeMapping("NUMBER(1)", DbType.Int16)),
+                Tuple.Create(typeof(byte), new RelationalTypeMapping("NUMBER(3)", DbType.Byte)),
+                Tuple.Create(typeof(double), new RelationalTypeMapping("FLOAT", DbType.Double)),
+             //   Tuple.Create(typeof(decimal), new RelationalTypeMapping("NUMBER", DbType.Decimal)),
+                Tuple.Create(typeof(DateTimeOffset), new RelationalTypeMapping("TIMESTAMP(6) with time zone", DbType.DateTimeOffset)),
+                Tuple.Create(typeof(char), new RelationalTypeMapping("CHAR", DbType.String)),
                 Tuple.Create(typeof(sbyte), new RelationalTypeMapping("smallint", DbType.SByte)),
                 Tuple.Create(typeof(ushort), new RelationalTypeMapping("int", DbType.UInt16)),
                 Tuple.Create(typeof(uint), new RelationalTypeMapping("bigint", DbType.UInt32)),

@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OracleParameterNameGeneratorFactory.cs" />
+    <Compile Include="OracleRelationalTypeMapping.cs" />
+    <Compile Include="OracleObjectArrayValueReaderFactory.cs" />
+    <Compile Include="OracleObjectArrayValueReader.cs" />
     <Compile Include="SequentialGuidValueGenerator.cs" />
     <Compile Include="OracleBatchExecutor.cs" />
     <Compile Include="OracleConfigurationExtension.cs" />
@@ -88,6 +91,7 @@
       <CustomToolNamespace>Microsoft.Data.Entity.SqlServer</CustomToolNamespace>
     </None>
     <Content Include="project.json" />
+    <Content Include="Backlog.txt" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

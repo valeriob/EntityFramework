@@ -4,6 +4,7 @@
 using JetBrains.Annotations;
 using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Relational;
+using Microsoft.Data.Entity.Relational.Oracle;
 using Microsoft.Data.Entity.Relational.Update;
 
 namespace Microsoft.Data.Entity.Oracle
@@ -21,7 +22,7 @@ namespace Microsoft.Data.Entity.Oracle
 
         protected override RelationalValueReaderFactory ValueReaderFactory
         {
-            get { return new RelationalObjectArrayValueReaderFactory(); }
+            get { return new OracleObjectArrayValueReaderFactory(); }
         }
     }
 }

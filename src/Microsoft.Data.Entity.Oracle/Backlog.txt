@@ -1,0 +1,4 @@
+ -  Batch execution header + FOOTERs
+ - Oracle select fields escaping
+ -  Top k query
+ 
